@@ -13,12 +13,13 @@ export class MessageBoardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitMessage(message_content: string){
-    if(message_content !== ""){
+  submitMessage(msg: string){
+    this.message_content = msg;
+    if(this.message_content !== ""){
       alert("Submitted!");
       this.message_exist = true;
-      $(".message").text(message_content);
-      console.log(message_content);
+      //$(".message").text(this.message_content);
+      console.log(this.message_content);
     }else{
       this.message_exist = false;
     }
