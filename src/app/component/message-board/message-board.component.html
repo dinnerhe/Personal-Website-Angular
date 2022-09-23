@@ -1,1 +1,13 @@
-<p>message-board works!</p>
+<div class = 'box'>
+<h1 class = 'title'> Message Board</h1>
+  <h2> Enter Your Message </h2>
+  <div class="enter-text">
+    <textarea class="current-message" #currentMessage [(ngModel)]="message_content"></textarea>
+    <button type = "button" class="btn" (click)="submitMessage(currentMessage.value)" >Submit</button>
+  </div>
+  <div class = "message-history" *ngIf="message_exist">
+    <h2>Message: </h2>
+    <p class = "message">{{message_content}} </p>
+  </div>
+</div>
+

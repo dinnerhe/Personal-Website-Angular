@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AboutMeComponent } from './component/about-me/about-me.component';
 import { MainPageComponent } from './component/main-page/main-page.component';
 import { MessageBoardComponent } from './component/message-board/message-board.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,10 +15,11 @@ import { MessageBoardComponent } from './component/message-board/message-board.c
     MainPageComponent,
     MessageBoardComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule
+	],
   providers: [],
   bootstrap: [AppComponent]
 })
