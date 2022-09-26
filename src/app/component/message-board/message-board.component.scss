@@ -7,7 +7,7 @@
   padding-right: 1%;
   flex-wrap: wrap;
 }
-.btn{
+.sub{
   background-color: #343A40;
   border-radius: 4px;
   color: #fff;
@@ -16,7 +16,7 @@
 
 }
 
-.btn:hover{
+.sub:hover{
   background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
   animation:slidebg 5s linear infinite;
   color: white;
@@ -43,6 +43,25 @@
   to {
     background-position:20vw;
   }
+}
+
+.message-history{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message-block{
+  flex-basis: 100%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  --stripe: #cfd8dc;
+  --bg: #e1e1e1;
+  background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
+  linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0,
+  linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+  linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-color: var(--stripe);
 }
 
 

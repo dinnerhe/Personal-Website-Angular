@@ -3,11 +3,15 @@
   <h2> Enter Your Message </h2>
   <div class="enter-text">
     <textarea class="current-message" #currentMessage></textarea>
-    <button type = "button" class="btn" (click)="submitMessage(currentMessage.value)" >Submit</button>
+    <button type = "button" class="btn sub" (click)="submitMessage(currentMessage.value)" >Submit</button>
   </div>
-  <div class = "message-history" *ngIf="message_exist">
-    <h2>Message: </h2>
-    <p class = "message"> {{message_content}}</p>
+  <div class = "message-history" *ngIf="message_content !== undefined" >
+   <div class = "message-block" *ngFor="let message of message_content">
+     <p>Date: {{message.time}}</p>
+     <p>Message: {{message.message}}</p>
+   </div>
+    <button type="button" class="btn btn-danger" (click)="clearMessageStorage()">Clear Message History</button>
   </div>
+
 </div>
 

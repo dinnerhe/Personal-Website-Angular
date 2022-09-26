@@ -13,4 +13,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  emailme(){
+    window.open('mailto:test@example.com?subject=subject&body=body');
+  }
 }
