@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {dateTimestampProvider} from "rxjs/internal/scheduler/dateTimestampProvider";
+import {catchError, throwError} from "rxjs";
+import {Router} from "@angular/router";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   pass(): boolean{
     /*
@@ -21,19 +25,27 @@ export class AuthService {
 
   }
 
-  getResource():void{
-    this.http.get('https://localhost:7280/WeatherForecast').subscribe(data =>console.log(data));
-  }
+
 
   login(username: string, password: string){
     let a = "";
-    this.http.post<any>('https://localhost:7280/api/Admin/login', {username, password}).subscribe((data) => {
-      a = data.jwt;
-      localStorage.setItem('jwt', data.jwt);
-      console.log(a);
-    });
+    this.http.post<any>('https://localhost:7280/api/Admin/login', {username, password}).subscribe({
+      next: (data) => {
+          a = data.jwt;
+          localStorage.setItem('jwt', data.jwt);
+          console.log(a);
+        this.router.navigate(['admin/dashboard']);
+        },
+      error: (error)=> {
+          console.error(error);
+          alert(error.error.message);
+        }
+      });
+
+
 
 
   }
+
 
 }
