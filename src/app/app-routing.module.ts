@@ -7,7 +7,8 @@ import { MessageBoardComponent} from "./component/message-board/message-board.co
 const routes: Routes = [
   {path: '', component: MainPageComponent},
   {path: 'about-me', component: AboutMeComponent},
-  {path: 'message-board', component: MessageBoardComponent}
+  {path: 'message-board', component: MessageBoardComponent},
+  {path: 'admin', loadChildren: ()=>import('./admin/admin.module').then(m => m.AdminModule)}
 ];
 
 @NgModule({
