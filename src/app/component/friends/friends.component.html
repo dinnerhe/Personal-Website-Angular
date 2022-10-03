@@ -1,0 +1,23 @@
+<h1>Friends</h1>
+<table class = "table" *ngIf="this.friends">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Email</th>
+          <th scope="col">Operation</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let friend of this.friends">
+        <tr>
+            <th scope="row">{{friend.id}}</th>
+            <td>{{friend.firstName}}</td>
+            <td>{{friend.lastName}}</td>
+            <td>{{friend.email}}</td>
+            <td><button type="button" class="btn btn-danger delete-btn" (click)="deleteFriend(friend.id)" *ngIf="isAdmin">Delete</button></td>
+          </tr>
+    </tbody>
+    </table>
+<h2 *ngIf="!this.friends" >No Friend to show here</h2>
+

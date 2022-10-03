@@ -10,13 +10,15 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {GeneraljwtInterceptor} from "./interceptors/generaljwt.interceptor";
 import { ReactiveFormsModule } from '@angular/forms';
+import { FriendsComponent } from './component/friends/friends.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutMeComponent,
     MainPageComponent,
-    MessageBoardComponent
+    MessageBoardComponent,
+    FriendsComponent
   ],
 	imports: [
 		BrowserModule,

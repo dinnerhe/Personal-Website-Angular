@@ -28,12 +28,10 @@ export class AuthService {
 
 
   login(username: string, password: string){
-    let a = "";
     this.http.post<any>('https://localhost:7280/api/Admin/login', {username, password}).subscribe({
       next: (data) => {
-          a = data.jwt;
           localStorage.setItem('jwt', data.jwt);
-          console.log(a);
+          console.log(data.jwt);
         this.router.navigate(['admin/dashboard']);
         },
       error: (error)=> {
@@ -41,10 +39,19 @@ export class AuthService {
           alert(error.error.message);
         }
       });
+  }
 
-
-
-
+  signup(username: string, password: string){
+    this.http.post<any>('https://localhost:7280/api/Admin/signup', {username, password}).subscribe({
+      next: (data) => {
+        alert("Signup Success!")
+        this.router.navigate(['admin/dashboard']);
+      },
+      error: (error)=> {
+        console.error(error);
+        alert(error.error.message);
+      }
+    });
   }
 
 

@@ -1,0 +1,21 @@
+<p>Add Friend to Database</p>
+<form [formGroup]="friend_form" (ngSubmit)="create()" id="friend_form">
+    <div class="form-group">
+      <label for="firstName">First Name: </label>
+      <input id="firstName" type="text" formControlName="first_name" class="form-control">
+      <span *ngIf="friendFormControl.first_name.errors?.['required']" class="text-danger">First name is required</span>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name: </label>
+        <input id="lastName" type="text" formControlName="last_name" class="form-control">
+        <span *ngIf="friendFormControl.last_name.errors?.['required']" class="text-danger">Last name is required</span>
+    </div>
+    <div class="form-group">
+        <label for="email">Email: </label>
+        <input id="email" type="text" formControlName="email" class="form-control">
+        <span *ngIf="friendFormControl.email.errors?.['required']" class="text-danger">Email is required</span>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" >Create</button>
+  
+  </form>

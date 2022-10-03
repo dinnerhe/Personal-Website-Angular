@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FriendCreateComponent } from './friend-create/friend-create.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    FriendCreateComponent
   ],
   imports: [
     CommonModule,
